@@ -46,6 +46,7 @@ function CardView() {
         axios.get(allCountriesUrl)
             .then(response => {
                 setCountries(response.data)
+                console.log(response.data, "response")
             })
             .catch(error => {
                 console.log(error, 'errorHOOK');

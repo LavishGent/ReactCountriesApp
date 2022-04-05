@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function SingleCountry() {
   console.log('SingleCountry')
@@ -31,32 +31,50 @@ function SingleCountry() {
         <button onClick={() => { navigate('/') }}>Back</button>
         {country.map((country) => {
           let { name, population, region, capital, tld, cca3, currencies, languages, borders, flags, subregion } = country;
-          if(borders === undefined) {
+          if (borders === undefined) {
             borders = ["No Borders"];
           }
+          languages = Object.values(languages).map((language) => {
+            console.log(language, 'language')
+            return language;
+          })
+          currencies = Object.keys(currencies).map((currency) => {
+            console.log(currency, 'currency')
+            return currency;
+          })
           return (
-            <section key={cca3}>
-              <img src={flags.png} alt='Country Flag' />
-              <h1>{name.common}</h1>
-              <p>Native Name: {name.official}</p>
-              <p>Population: {population}</p>
-              <p>Region: {region}</p>
-              <p>Sub Region: {subregion}</p>
-              <p>Capital: {capital}</p>
-              <p>Top Level Domain: {tld}</p>
-              <p>Currencies: {Object.keys(currencies)}</p>
-              <p>Languages: {Object.values(languages)}</p>
+            <section key={cca3} className='country-detail'>
               <div>
-                <h2>Border Countries:</h2>
-                { borders.map((border) => {
+                <img src={flags.png} alt='Country Flag' />
+              </div>
+              <article>
+                <div>
+                  <h1>{name.common}</h1>
+                  <p>Native Name: {name.official}</p>
+                  <p>Population: {population}</p>
+                  <p>Region: {region}</p>
+                  <p>Sub Region: {subregion}</p>
+                  <p>Capital: {capital}</p>
+                  <p>Top Level Domain: {tld}</p>
+                  <p>Currencies: {currencies.join(', ')}</p>
+                  <p>Languages: {languages.join(', ')}</p>
+                </div>
+                <div>
+                  <h2>Border Countries:</h2>
+                  <ul className='borders'>
+                    {borders.map((border) => {
                       return (
-                        <div key={border}>
-                          <button onClick={() =>{navigate(`/country/${border}`)}} >{border}</button>
-                        </div>
+
+                        <li key={border}>
+                          <button onClick={() => { navigate(`/country/${border}`) }} >{border}</button>
+                        </li>
+
                       )
                     })
-                }
-              </div>
+                    }
+                  </ul>
+                </div>
+              </article>
             </section>
           )
         })}

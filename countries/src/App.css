@@ -70,8 +70,19 @@ header p {
   padding: 0 20px;
 }
 .search-input {
-  
   font: 12px Regular;
   height: 100%;
   width: 100%;
+}
+.country-detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.borders{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+  list-style: none;
 }
