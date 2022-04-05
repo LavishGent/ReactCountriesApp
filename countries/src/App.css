@@ -1,0 +1,77 @@
+@font-face {
+  font-family: ExtraBold;
+  src: url(font/NunitoSans-ExtraBold.ttf);
+}
+@font-face {
+  font-family: SemiBold;
+  src: url(font/NunitoSans-SemiBold.ttf);
+}
+@font-face {
+  font-family: Regular;
+  src: url(font/NunitoSans-Regular.ttf);
+}
+@font-face {
+  font-family: Light;
+  src: url(font/NunitoSans-Light.ttf);
+}
+:root {
+  --elements-color: white;
+  --text-color: hsl(200, 15%, 8%);
+  --background-color: hsl(0, 0%, 98%);
+  --input-color: hsl(0, 0%, 52%);
+}
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+header {
+  background-color: var(--elements-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--elements-color);
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+  margin-bottom: 10px;
+}
+header p {
+  font-family: ExtraBold;
+  font-size: 14px;
+  padding-left: 30px;
+}
+.rightSideHeader {
+  padding-right: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.info-title {
+  font-family: SemiBold;
+  font-size: 14px;
+}
+.country-card {
+  background-color: var(--elements-color);
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.294384);
+  border-radius: 5px;
+}
+.search-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.search-input {
+  
+  font: 12px Regular;
+  height: 100%;
+  width: 100%;
+}
